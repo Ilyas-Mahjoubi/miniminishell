@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilmahjou <ilmahjou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilmahjou <ilmahjou@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 19:55:30 by ilmahjou          #+#    #+#             */
-/*   Updated: 2025/04/08 16:19:26 by ilmahjou         ###   ########.fr       */
+/*   Updated: 2025/04/09 01:11:42 by ilmahjou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,10 @@ t_token *handle_env_variable(char *input, int *i, t_token *head, t_token *curren
 		var_name = ft_substr(input, start, *i - start);
 		if (!var_name)
 			return (free_tokens(head));
-
 		// Create a token for the variable (e.g., HOME, USER)
 		new_token = creat_token(var_name, TOKEN_VAR);
 		free(var_name);
 	}
-
 	// Add the new token to the token list
 	if (!new_token)
 		return (free_tokens(head));
@@ -96,7 +94,6 @@ t_token *handle_env_variable(char *input, int *i, t_token *head, t_token *curren
 		head = new_token;
 	else
 		current->next = new_token;
-
 	return (head);
 }
 

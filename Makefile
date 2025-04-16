@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fPIE
 
 INCLUDES = -I/usr/include -Ilibft -Iget_next_line -Ilibprintf -Iparssing
 
@@ -33,7 +33,7 @@ all: $(NAME)
 #bonus: $(NAME_BONUS)
 
 $(NAME): $(LIBFT) $(OBJECTS) $(GNL_OBJECTS) $(PRINT)
-	$(CC) $(CFLAGS) $(OBJECTS) $(GNL_OBJECTS) -o $(NAME) $(LIBFT) $(PRINT) -lreadline
+	$(CC) $(CFLAGS) $(OBJECTS) $(GNL_OBJECTS) -o $(NAME) $(LIBFT) $(PRINT) -lreadline -pie
 
 # Bonus
 #$(NAME_BONUS): $(LIBFT) $(OBJECT_BONUS) $(GNL_OBJECTS) $(PRINT)
